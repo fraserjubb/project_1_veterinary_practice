@@ -38,3 +38,10 @@ def select(id):
             result = results[0]
             pet = Pet(result['name'], result['date_of_birth'], result['type_of_animal'], result['id'] )
         return pet
+
+
+def update(pet):
+    sql = "UPDATE pets SET (name, date_of_birth, type_of_animal) = (%s, %s, %s) WHERE id = %s"
+    values = [pet.name, pet.date_of_birth, pet.type_of_animal]
+    print(values)
+    run_sql(sql, values)

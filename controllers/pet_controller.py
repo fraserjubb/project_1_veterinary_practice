@@ -17,7 +17,17 @@ def show(id):
     # locations = location_repository.locations_for_user(user)
     return render_template("pets/show.html", pet=pet) #locations=locations)
 
-# @pets_blueprint.route("/pets/<id>", methods=['GET'])
-# def show_pet(id):
-#     pet = pet.select(id)
-#     return render_template('pets/show.html', pet = pet)
+
+@pets_blueprint.route("/pets/<id>", methods=['POST'])
+def update_pet(id):
+    name    = request.form['name']
+    date_of_birth = request.form['date_of_birth']
+    type_of_animal   = request.form['type_of_animal']
+    pet = Pet(name, date_of_birth, type_of_animal, id)
+    pet_repository.update(pet)
+    return redirect('/pets')
+
+
+@pets_blueprint.route("/pets/new", methods=['GET'])
+def new_pet():
+    return render_template("pets/new.html", pets = pets)
