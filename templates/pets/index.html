@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Pets</h1>
+<h1>List of Current Pets</h1>
 
 <ul>
     {% for pet in pets  %}
-    <li>{{pet.name}} {{pet.date_of_birth}}</li>
+    <li><a href="/pets/{{ pet.id }}"> {{pet.name}} </a></li>
     {% endfor %}
 </ul>
 
-<!-- <table>
+<table>
   <tr>
     <th>Name</th>
   
@@ -19,5 +19,5 @@
     <td><a href="/pets/{{ pet.id }}"> {{pet.name}} </a></td>
   </tr>
   {% endfor %}
-</table> -->
+</table>
 {% endblock %}

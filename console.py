@@ -5,16 +5,17 @@ import repositories.pet_repository as pet_repository
 
 pet_repository.delete_all()
 
-pet_1 = Pet('Daisy', '01.01.2011', 'Doggy')
+#pets:
+pet_1 = Pet('Daisy', '01.01.2011', 'Dog')
 pet_repository.save(pet_1)
 
 pet_2 = Pet('Garfield', '03.11.2005', 'Cat')
 pet_repository.save(pet_2)
 
-pet_3 = Pet('Cerberus', '06.06.2006', 'Doggy')
+pet_3 = Pet('Cerberus', '06.06.2006', 'Dog')
 pet_repository.save(pet_3)
 
-pet_4 = Pet('WHY', '06.06.2006', 'Doggy')
+pet_4 = Pet('WHY', '06.06.2006', 'Dog')
 pet_repository.save(pet_4)
 
 
