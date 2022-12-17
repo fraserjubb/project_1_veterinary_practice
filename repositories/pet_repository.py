@@ -10,20 +10,22 @@ def save(pet):
     pet.id = results[0]['id']
     return pet
 
+
 def select_all():
     pets = []
 
     sql = "SELECT * FROM pets"
     results = run_sql(sql)
     for row in results:
-        pet = Pet(row['name'], row['id'])
+        pet = Pet(row['name'], row['date_of_birth'], row['type_of_animal'], row['id'])
         pets.append(pet)
-    return pet
+    return pets
+
 
 def delete_all():
     sql = "DELETE FROM pets"
     run_sql(sql)
-    
+
 # def select(id):
 #     user = None
 #     sql = "SELECT * FROM users WHERE id = %s"
