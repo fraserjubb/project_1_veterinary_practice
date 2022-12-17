@@ -1,5 +1,5 @@
 DROP TABLE vets;
-DROP TABLE customers;
+-- DROP TABLE customers;
 DROP TABLE pets;
 
 CREATE TABLE pets (
@@ -9,12 +9,12 @@ CREATE TABLE pets (
     type_of_animal VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE customers (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    phone_number VARCHAR(255),
-    pet_id INT REFERENCES pets(id)
-);
+-- CREATE TABLE customers (
+--     id SERIAL PRIMARY KEY,
+--     name VARCHAR(255),
+--     phone_number VARCHAR(255),
+--     pet_id INT REFERENCES pets(id)
+-- );
 
 CREATE TABLE vets (
     id SERIAL PRIMARY KEY,
@@ -22,28 +22,28 @@ CREATE TABLE vets (
     pet_patient_id INT REFERENCES pets(id)
 );
 
-INSERT INTO pets (name, date_of_birth, type_of_animal) VALUES ('Daisy', '18/03/2015', 'Dog');
-INSERT INTO pets (name, date_of_birth, type_of_animal) VALUES ('Garfield', '01/10/2008', 'Cat');
-INSERT INTO pets (name, date_of_birth, type_of_animal) VALUES ('Cerberus', '06/06/2006', 'Dog');
-INSERT INTO pets (name, date_of_birth, type_of_animal) VALUES ('Luna', '20/11/2001', 'Cat');
-INSERT INTO pets (name, date_of_birth, type_of_animal) VALUES ('Smudge', '29/12/2019', 'Rabbit');
+-- INSERT INTO pets (name, date_of_birth, type_of_animal) VALUES ('Daisy', '18/03/2015', 'Dog');
+-- INSERT INTO pets (name, date_of_birth, type_of_animal) VALUES ('Garfield', '01/10/2008', 'Cat');
+-- INSERT INTO pets (name, date_of_birth, type_of_animal) VALUES ('Cerberus', '06/06/2006', 'Dog');
+-- INSERT INTO pets (name, date_of_birth, type_of_animal) VALUES ('Luna', '20/11/2001', 'Cat');
+-- INSERT INTO pets (name, date_of_birth, type_of_animal) VALUES ('Smudge', '29/12/2019', 'Rabbit');
 
-SELECT * FROM pets;
+-- SELECT * FROM pets;
 
-INSERT INTO customers (name, phone_number, pet_id) VALUES ('Fraser Jubb', '07932773255', 1);
-INSERT INTO customers (name, phone_number, pet_id) VALUES ('Satan', '66666666666', 3);
-INSERT INTO customers (name, phone_number, pet_id) VALUES ('Jon Arbuckle', '01234567890', 2);
+-- INSERT INTO customers (name, phone_number, pet_id) VALUES ('Fraser Jubb', '07932773255', 1);
+-- INSERT INTO customers (name, phone_number, pet_id) VALUES ('Satan', '66666666666', 3);
+-- INSERT INTO customers (name, phone_number, pet_id) VALUES ('Jon Arbuckle', '01234567890', 2);
 
-SELECT * FROM customers;
+-- SELECT * FROM customers;
 
-INSERT INTO vets (name, pet_patient_id) VALUES ('Dr R. Williams', 1);
-INSERT INTO vets (name, pet_patient_id) VALUES ('Dr S. Clause', 3);
+-- INSERT INTO vets (name, pet_patient_id) VALUES ('Dr R. Williams', 1);
+-- INSERT INTO vets (name, pet_patient_id) VALUES ('Dr S. Clause', 3);
 
-SELECT * FROM vets;
+-- SELECT * FROM vets;
 
--- - name - string
--- - date_of_birth - string
--- - species - string
--- - breed - string
--- - ID
--- - medical_history - empty list
+-- -- - name - string
+-- -- - date_of_birth - string
+-- -- - species - string
+-- -- - breed - string
+-- -- - ID
+-- -- - medical_history - empty list
