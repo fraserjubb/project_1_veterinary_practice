@@ -1,7 +1,6 @@
 from db.run_sql import run_sql
 
 from models.pet import Pet
-# from models.customer import Customer
 
 def save(pet):
     sql = "INSERT INTO pets( name, date_of_birth, type_of_animal ) VALUES ( %s, %s, %s ) RETURNING id"
@@ -39,9 +38,14 @@ def select(id):
             pet = Pet(result['name'], result['date_of_birth'], result['type_of_animal'], result['id'] )
         return pet
 
+# Not currently doing anything
+# def update(pet):
+#     sql = "INSERT pets SET (name, date_of_birth, type_of_animal) = (%s, %s, %s) WHERE id = %s"
+#     values = [pet.name, pet.date_of_birth, pet.type_of_animal, pet.id]
+#     print(values)
+#     run_sql(sql, values)
 
-def update(pet):
-    sql = "UPDATE pets SET (name, date_of_birth, type_of_animal) = (%s, %s, %s) WHERE id = %s"
-    values = [pet.name, pet.date_of_birth, pet.type_of_animal]
-    print(values)
+def delete(id):
+    sql = "DELETE pets WHERE id= %s"
+    values = [id]
     run_sql(sql, values)

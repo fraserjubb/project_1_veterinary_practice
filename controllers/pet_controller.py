@@ -15,19 +15,25 @@ def pets():
 def show(id):
     pet = pet_repository.select(id)
     # locations = location_repository.locations_for_user(user)
-    return render_template("pets/show.html", pet=pet) #locations=locations)
+    return render_template("pets/show.html", pet=pet)
 
 
-@pets_blueprint.route("/pets/<id>", methods=['POST'])
-def update_pet(id):
-    name    = request.form['name']
+@pets_blueprint.route("/pets/", methods=['POST'])
+def create_pet():
+    name = request.form['name']
     date_of_birth = request.form['date_of_birth']
-    type_of_animal   = request.form['type_of_animal']
-    pet = Pet(name, date_of_birth, type_of_animal, id)
-    pet_repository.update(pet)
+    type_of_animal = request.form['type_of_animal']
+    new_pet = Pet(name, date_of_birth, type_of_animal)
+    pet_repository.save(new_pet)
     return redirect('/pets')
 
 
 @pets_blueprint.route("/pets/new", methods=['GET'])
 def new_pet():
     return render_template("pets/new.html", pets = pets)
+
+
+@pets_blueprint.route("/pets/<id>/delete", methods = ['POST'])
+def delete_pet(id):
+    pet_repository.delete(id)
+    return redirect('/pets')

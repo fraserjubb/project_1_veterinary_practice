@@ -6,6 +6,9 @@
 <ul>
     {% for pet in pets  %}
     <li><a href="/pets/{{ pet.id }}"> {{pet.name}} </a></li>
+    <form action="/pets/{{pet.id}}/delete" method="POST">
+        <input class="btn btn--danger" type="submit" value="delete" />
+    </form>
     {% endfor %}
 </ul>
 
