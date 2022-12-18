@@ -6,18 +6,8 @@ import repositories.pet_repository as pet_repository
 
 pets_blueprint = Blueprint("pets", __name__)
 
-@pets_blueprint.route("/pets")
-def pets():
-    pets = pet_repository.select_all() 
-    return render_template("pets/index.html", pets = pets)
 
-@pets_blueprint.route("/pets/<id>")
-def show(id):
-    pet = pet_repository.select(id)
-    # locations = location_repository.locations_for_user(user)
-    return render_template("pets/show.html", pet=pet)
-
-
+# Create
 @pets_blueprint.route("/pets/", methods=['POST'])
 def create_pet():
     name = request.form['name']
@@ -33,6 +23,24 @@ def new_pet():
     return render_template("pets/new.html", pets = pets)
 
 
+# Read
+@pets_blueprint.route("/pets")
+def pets():
+    pets = pet_repository.select_all() 
+    return render_template("pets/index.html", pets = pets)
+
+@pets_blueprint.route("/pets/<id>")
+def show(id):
+    pet = pet_repository.select(id)
+    # locations = location_repository.locations_for_user(user)
+    return render_template("pets/show.html", pet=pet)
+
+
+# Update
+
+
+
+# Delete
 @pets_blueprint.route("/pets/<id>/delete", methods = ['POST'])
 def delete_pet(id):
     pet_repository.delete(id)
