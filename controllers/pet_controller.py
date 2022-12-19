@@ -19,7 +19,7 @@ def create_pet():
 
 @pets_blueprint.route("/pets/new", methods=['GET'])
 def new_pet():
-    return render_template("pets/new.html", pets = pets)
+    return render_template("pets/new.html")
 
 
 # Read > Show all pets
@@ -44,9 +44,9 @@ def edit_pet_details(id):
 # Update
 @pets_blueprint.route("/pets/<id>", methods = ['POST'])
 def update_pet_details(id):
-    name = name.form['name']
-    date_of_birth = date_of_birth.form['date_of_birth']
-    type_of_animal = type_of_animal.form['type_of_animal']
+    name = request.form['name']
+    date_of_birth = request.form['date_of_birth']
+    type_of_animal = request.form['type_of_animal']
     pet = Pet(name, date_of_birth, type_of_animal, id)
     pet_repository.update_pet_details(pet)
     return redirect('/pets')
