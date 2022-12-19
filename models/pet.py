@@ -6,3 +6,6 @@ class Pet:
         self.type_of_animal = type_of_animal
         self.id = id
         self.medical_history = []
+
+    def add_notes_to_history(self, note):
+        self.medical_history.append(note)

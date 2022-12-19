@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-  <div>
-    <p>Name: {{pet.name}}</p>
+<div>
     <p>Date of Birth: {{pet.date_of_birth}}</p>
     <p>Animal Type: {{pet.type_of_animal}}</p>
-  </div>
+    <p><a href="/pets/{{pet.id}}/edit">Edit Pet Details</a></p>
+</div>
 
-    <form action="/pets/{{pet.id}}/delete" method="POST">
-        <input class="btn btn--danger" type="submit" value="delete" />  
-    </form>
+<form action="/pets/{{pet.id}}/delete" method="POST">
+    <input class="btn btn--danger" type="submit" value="delete" />  
+</form>
 {% endblock %}

@@ -1,4 +1,3 @@
-import pdb
 from models.pet import Pet
 
 import repositories.pet_repository as pet_repository
@@ -19,4 +18,3 @@ pet_4 = Pet('WHY', '06.06.2006', 'Dog')
 pet_repository.save(pet_4)
 
 
-# pdb.set_trace()
