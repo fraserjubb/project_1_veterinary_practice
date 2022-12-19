@@ -5,7 +5,8 @@
 
 <ul>
     {% for pet in pets  %}
-    <li><a href="/pets/{{ pet.id }}"> {{pet.name}} </a></li>
+    <li><a href="/pets/{{ pet.id }}"> {{pet.name}}  </a></li>
+    <p> {{ pet.owner.contact_number }} </p>
     <form action="/pets/{{pet.id}}/delete" method="POST">
         <input class="btn btn--danger" type="submit" value="delete" />
     </form>

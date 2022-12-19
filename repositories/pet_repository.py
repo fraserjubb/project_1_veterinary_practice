@@ -1,12 +1,13 @@
 from db.run_sql import run_sql
 
+import repositories.owner_repository as owner_repo 
 from models.pet import Pet
 
 
 # Create
 def save(pet):
-    sql = "INSERT INTO pets( name, date_of_birth, type_of_animal ) VALUES ( %s, %s, %s ) RETURNING id"
-    values = [pet.name, pet.date_of_birth, pet.type_of_animal]
+    sql = "INSERT INTO pets( name, date_of_birth, type_of_animal, owner_id ) VALUES ( %s, %s, %s, %s ) RETURNING id"
+    values = [pet.name, pet.date_of_birth, pet.type_of_animal, pet.owner.id]
     results = run_sql( sql, values )
     pet.id = results[0]['id']
     return pet
@@ -19,7 +20,8 @@ def select_all():
     sql = "SELECT * FROM pets"
     results = run_sql(sql)
     for row in results:
-        pet = Pet(row['name'], row['date_of_birth'], row['type_of_animal'], row['id'])
+        owner = owner_repo.select(row['owner_id'])
+        pet = Pet(row['name'], row['date_of_birth'], row['type_of_animal'], owner, row['id'])
         pets.append(pet)
     return pets
 
@@ -32,15 +34,14 @@ def select(id):
     
     if len(results) > 0:
         result = results[0]
-        pet = Pet(result['name'], result['date_of_birth'], result['type_of_animal'], result['id'] )
+        pet = Pet(result['name'], result['date_of_birth'], result['type_of_animal'], result['owner_id'], result['id'] )
     return pet
 
 
 # Update
-# Not currently doing anything
 def update_pet_details(pet):
-    sql = "UPDATE pets SET (name, date_of_birth, type_of_animal) = (%s, %s, %s) WHERE id = %s"
-    values = [pet.name, pet.date_of_birth, pet.type_of_animal, pet.id]
+    sql = "UPDATE pets SET (name, date_of_birth, type_of_animal, owner) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [pet.name, pet.date_of_birth, pet.type_of_animal, pet.owner, pet.id]
     run_sql(sql, values)
 
 

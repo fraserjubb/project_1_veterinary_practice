@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.pet import Pet
+from models.owner import Owner
 import repositories.pet_repository as pet_repository
+import repositories.owner_repository as owner_repository
 
 pets_blueprint = Blueprint("pets", __name__)
 
@@ -12,7 +14,8 @@ def create_pet():
     name = request.form['name']
     date_of_birth = request.form['date_of_birth']
     type_of_animal = request.form['type_of_animal']
-    new_pet = Pet(name, date_of_birth, type_of_animal)
+    owner  = owner_repository.select(request.form['owner_id'])
+    new_pet = Pet(name, date_of_birth, type_of_animal, owner)
     pet_repository.save(new_pet)
     return redirect('/pets')
 
