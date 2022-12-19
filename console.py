@@ -19,4 +19,4 @@ pet_4 = Pet('WHY', '06.06.2006', 'Dog')
 pet_repository.save(pet_4)
 
 
-pdb.set_trace()
+# pdb.set_trace()

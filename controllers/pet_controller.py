@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.pet import Pet
 import repositories.pet_repository as pet_repository
-# import repositories.location_repository as location_repository
 
 pets_blueprint = Blueprint("pets", __name__)
 
@@ -32,13 +31,14 @@ def pets():
 @pets_blueprint.route("/pets/<id>")
 def show(id):
     pet = pet_repository.select(id)
-    # locations = location_repository.locations_for_user(user)
     return render_template("pets/show.html", pet=pet)
 
 
 # Update
-
-
+# @pets_blueprint.route("/pets/<id>/update", methods = ['POST'])
+# def update_pet_details(id):
+#     pet_repository.update_pet_details(id)
+#     return redirect('/pets')
 
 # Delete
 @pets_blueprint.route("/pets/<id>/delete", methods = ['POST'])

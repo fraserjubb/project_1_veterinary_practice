@@ -38,16 +38,16 @@ def select(id):
 
 # Update
 # Not currently doing anything
-# def update(pet):
-#     sql = "INSERT pets SET (name, date_of_birth, type_of_animal) = (%s, %s, %s) WHERE id = %s"
-#     values = [pet.name, pet.date_of_birth, pet.type_of_animal, pet.id]
-#     print(values)
-#     run_sql(sql, values)
+def update_pet_details(pet):
+    sql = "INSERT pets SET (name, date_of_birth, type_of_animal) = (%s, %s, %s) WHERE id = %s"
+    values = [pet.name, pet.date_of_birth, pet.type_of_animal, pet.id]
+    print(values)
+    run_sql(sql, values)
 
 
 # Delete
 def delete(id):
-    sql = "DELETE pets WHERE id= %s"
+    sql = "DELETE FROM pets WHERE id= %s"
     values = [id]
     run_sql(sql, values)
 

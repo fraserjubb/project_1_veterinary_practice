@@ -7,6 +7,7 @@
     <p>Animal Type: {{pet.type_of_animal}}</p>
   </div>
 
-  <button type="remove">Delete</button>
-
+    <form action="/pets/{{pet.id}}/delete" method="POST">
+        <input class="btn btn--danger" type="submit" value="delete" />  
+    </form>
 {% endblock %}
