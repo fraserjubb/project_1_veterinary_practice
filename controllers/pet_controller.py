@@ -22,27 +22,27 @@ def create_pet():
 
 @pets_blueprint.route("/pets/new", methods=['GET'])
 def new_pet():
-    return render_template("pets/new.html")
+    return render_template("/pets/new.html")
 
 
 # Read > Show all pets
 @pets_blueprint.route("/pets")
 def pets():
     pets = pet_repository.select_all() 
-    return render_template("pets/index.html", pets = pets)
+    return render_template("/pets/index.html", pets = pets)
 
 # Read > Show individual pet
 @pets_blueprint.route("/pets/<id>")
 def show(id):
     pet = pet_repository.select(id)
-    return render_template("pets/show.html", pet=pet)
+    return render_template("/pets/show.html", pet=pet)
 
 
 # Edit > Need a page to view to enable an update/edit.
 @pets_blueprint.route("/pets/<id>/edit", methods = ['GET'])
 def edit_pet_details(id):
     pet = pet_repository.select(id)
-    return render_template("pets/edit.html", pet = pet)
+    return render_template("/pets/edit.html", pet = pet)
 
 # Update
 @pets_blueprint.route("/pets/<id>", methods = ['POST'])
@@ -50,6 +50,7 @@ def update_pet_details(id):
     name = request.form['name']
     date_of_birth = request.form['date_of_birth']
     type_of_animal = request.form['type_of_animal']
+    # owner  = owner_repository.update_owner_details(request.form['owner_id'])
     pet = Pet(name, date_of_birth, type_of_animal, id)
     pet_repository.update_pet_details(pet)
     return redirect('/pets')

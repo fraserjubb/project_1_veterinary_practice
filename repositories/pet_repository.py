@@ -34,7 +34,9 @@ def select(id):
     
     if len(results) > 0:
         result = results[0]
-        pet = Pet(result['name'], result['date_of_birth'], result['type_of_animal'], result['owner_id'], result['id'] )
+    for row in results:
+        owner = owner_repo.select(row['owner_id'])
+        pet = Pet(result['name'], result['date_of_birth'], result['type_of_animal'], owner, result['id'] )
     return pet
 
 
@@ -43,6 +45,8 @@ def update_pet_details(pet):
     sql = "UPDATE pets SET (name, date_of_birth, type_of_animal, owner) = (%s, %s, %s, %s) WHERE id = %s"
     values = [pet.name, pet.date_of_birth, pet.type_of_animal, pet.owner, pet.id]
     run_sql(sql, values)
+
+# def assign_vet(pet):
 
 
 # Delete

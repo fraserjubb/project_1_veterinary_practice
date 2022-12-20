@@ -15,6 +15,13 @@ CREATE TABLE pets (
     date_of_birth VARCHAR(255),
     type_of_animal VARCHAR(255) NOT NULL,
     owner_id INT REFERENCES owners(id)
+    vet_id INT REFERENCES vet(id)
+);
+
+
+CREATE TABLE vets (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
 );
 
 SELECT * FROM pets;
@@ -23,11 +30,7 @@ SELECT * FROM pets;
 SELECT * FROM owners;
 
 
--- CREATE TABLE vets (
---     id SERIAL PRIMARY KEY,
---     name VARCHAR(255),
---     pet_patient_id INT REFERENCES pets(id)
--- );
+
 
 -- INSERT INTO pets (name, date_of_birth, type_of_animal) VALUES ('Daisy', '18/03/2015', 'Dog');
 -- INSERT INTO pets (name, date_of_birth, type_of_animal) VALUES ('Garfield', '01/10/2008', 'Cat');
