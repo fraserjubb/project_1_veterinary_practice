@@ -18,6 +18,11 @@
     <input type="text" id="type_of_animal" name="type_of_animal" placeholder="type_of_animal" required>
   </div>
 
+  <div>
+    <label for="medical_history">New Medical Notes: </label>
+    <input type="text" id="medical_history" name="medical_history" placeholder="medical_history" required>
+  </div>
+
 
 
   <div>
@@ -31,14 +36,21 @@
    </select>
   </div>
 
+  <div>
+  {# SELECT #}
+  {# FOR LOOP OWNER IN OWNERS #}
+    <label for="vet-select">Assign a Vet:</label>
+    <select name="vet_id" id="vet_id">
+    {% for vet in vets %}
+        <option  value="{{vet.id}}">{{vet.name}}</option>
+    {% endfor %}
+   </select>
+  </div>
+
     <button type="submit">Add Pet</button>
 
 
-  {# OPTION TAG VALUE=OWNER.ID}
-    {# <label for="owner">Owner:</label>
-    <input type="text" id="owner" name="owner_id" placeholder="owner" required> #}
-  </div>
-
+  
     
 </form>
 
