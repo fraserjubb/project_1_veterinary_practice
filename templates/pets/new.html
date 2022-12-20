@@ -21,12 +21,25 @@
 
 
   <div>
-    <label for="owner">Owner:</label>
-    <input type="text" id="owner" name="owner" placeholder="owner" required>
+  {# SELECT #}
+  {# FOR LOOP OWNER IN OWNERS #}
+    <label for="owner-select">Choose an owner:</label>
+    <select name="owner_id" id="owner_id">
+    {% for owner in owners %}
+        <option  value="{{owner.id}}">{{owner.name}}</option>
+    {% endfor %}
+   </select>
   </div>
 
-  <button type="submit">Add Pet</button>
+    <button type="submit">Add Pet</button>
 
+
+  {# OPTION TAG VALUE=OWNER.ID}
+    {# <label for="owner">Owner:</label>
+    <input type="text" id="owner" name="owner_id" placeholder="owner" required> #}
+  </div>
+
+    
 </form>
 
 {% endblock %}
