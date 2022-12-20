@@ -6,14 +6,11 @@
 <ul>
     {% for pet in pets  %}
     <li><a href="/pets/{{ pet.id }}"> {{pet.name}}  </a></li>
-    <p> {{ pet.owner.contact_number }} </p>
-    <form action="/pets/{{pet.id}}/delete" method="POST">
-        <input class="btn btn--danger" type="submit" value="delete" />
     </form>
     {% endfor %}
 </ul>
 
-<table>
+<!-- <table>
   <tr>
     <th>Name</th>
   
@@ -22,6 +19,16 @@
   <tr>
     <td><a href="/pets/{{ pet.id }}"> {{pet.name}} </a></td>
   </tr>
+  {% endfor %} -->
+<!-- </table> -->
+
+
+
+<!-- <h2>List of Veterinary Practitioners</h2>
+<ul>
+  {% for vet in vets  %}
+  <li><a href="/pets/{{ vet.id }}"> {{vet.name}}  </a></li>
+  </form>
   {% endfor %}
-</table>
+</ul> -->
 {% endblock %}
