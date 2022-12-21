@@ -1,0 +1,63 @@
+body {
+    background-color: rgb(255, 242, 218)
+}
+
+main>h1 {
+    text-align: center;
+    padding: 1rem;
+}
+
+nav {
+    height: 3rem;
+    /* Use flexbox to vertially align the nav child elements in the center */
+    /* text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: fit-content; */
+    
+}
+
+nav ul {
+    display: flex;
+    text-align: center;
+    justify-content:space-around
+}
+
+nav > ul > li{
+    list-style: none;
+}
+
+
+main > section > h2 {
+    text-align: center;
+    padding: .5rem;
+}
+
+main > section > h4 {
+    text-align: center;
+    padding: .5rem;
+}
+
+main > section > ul > li {
+    text-align: center;
+    padding: .5rem;
+    list-style: none;
+}
+
+main > section > p {
+    width: 80%;
+    margin-left: 10%;
+}
+
+main > section > form {
+    text-align: center;
+    align-self: center;
+    padding: 1rem;
+}
+
+main > section > div {
+    text-align: center;
+    padding: .5rem;
+    list-style: none;
+}
