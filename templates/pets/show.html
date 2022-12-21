@@ -2,12 +2,13 @@
 {% block content %}
 
 <div>
-    <p>Name: {{pet.name}}</p>
-    <p>Date of Birth: {{pet.date_of_birth}}</p>
-    <p>Animal Type: {{pet.type_of_animal}}</p>
-    <p>Contact Details of Owner: {{pet.owner.contact_number}}</p>
-    <p>Assigned Vet: {{pet.vet.name}}</p>
-    <p>Medical History: {{pet.medical_history}}</p>
+    <p> <b> Animal Name: </b>{{pet.name}}</p>
+    <p> <b> Date of Birth: </b> {{pet.date_of_birth}}</p>
+    <p> <b> Animal Type: </b> {{pet.type_of_animal}}</p>
+    <p> <b> Owner Name: </b> {{pet.owner.name}}</p>
+    <p> <b> Owner Contact Number: </b> {{pet.owner.contact_number}}</p>
+    <p> <b> Assigned Vet: </b> {{pet.vet.name}}</p>
+    <p> <b> Medical History: </b> {{pet.medical_history}}</p>
     <p><a href="/pets/{{pet.id}}/edit">Edit Pet Details</a></p>
 </div>
 

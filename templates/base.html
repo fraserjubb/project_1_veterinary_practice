@@ -12,11 +12,14 @@
 </head>
 <body>
 <main class="flex flex--row">
+  <h1>Healthy Pets 4 Life</h1>
   <nav>
     <ul>
       <li>
-        <a href="/pets">Pets</a>
-        <li><a href="{{ url_for('pets.new_pet') }}">Register New Pet</a></li>
+        <a href="{{ url_for('pets.new_pet') }}">Register New Animal</a>
+      </li>
+      <li>
+        <a href="/pets">See All Animals Currently Registered</a>
       </li>
     </ul>
   </nav>
