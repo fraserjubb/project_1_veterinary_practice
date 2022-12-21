@@ -26,7 +26,7 @@ vet_2 = Vet('Dr R Williams')
 vet_repository.save(vet_2)
 
 #pets:
-pet_1 = Pet('Daisy', '01.01.2011', 'Dog', 'N/A', owner_1, vet_2)
+pet_1 = Pet('Daisy', '01.01.2011', 'Dog', '', owner_1, vet_2)
 pet_repository.save(pet_1)
 
 pet_2 = Pet('Garfield', '03.11.2005', 'Cat', 'Obesity', owner_1, vet_1)
@@ -35,5 +35,5 @@ pet_repository.save(pet_2)
 pet_3 = Pet('Cerberus', '06.06.2006', 'Dog', 'Has 3 heads', owner_2, vet_1)
 pet_repository.save(pet_3)
 
-pet_4 = Pet('WHY', '06.06.2006', 'Dog','N/A', owner_1, vet_1)
+pet_4 = Pet('WHY', '06.06.2006', 'Dog','', owner_1, vet_1)
 pet_repository.save(pet_4)

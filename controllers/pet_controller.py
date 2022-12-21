@@ -44,6 +44,9 @@ def show(id):
     return render_template("/pets/show.html", pet=pet)
 
 
+# # Read > Home page
+# @pets_blueprint.route
+
 # Edit > Need a page to view to enable an update/edit.
 @pets_blueprint.route("/pets/<id>/edit", methods = ['GET'])
 def edit_pet_details(id):
